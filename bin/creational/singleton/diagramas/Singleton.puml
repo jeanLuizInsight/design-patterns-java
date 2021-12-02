@@ -1,0 +1,43 @@
+@startuml
+package creational.singleton {
+  class App {
+    + App()
+    + main(args : String[]) {static}
+  }
+  enum EnumSingleton {
+    + INSTANCE {static}
+    + toString() : String
+    + valueOf(name : String) : EnumIvoryTower {static}
+    + values() : EnumIvoryTower[] {static}
+  }
+  class InitializingOnDemandHolderIdiomSingleton {
+    - InitializingOnDemandHolderIdiomSingleton()
+    + getInstance() : InitializingOnDemandHolderIdiomSingleton {static}
+  }
+  -class HelperHolder {
+    - INSTANCE : InitializingOnDemandHolderIdiomSingleton {static}
+    - HelperHolder()
+  }
+  class Singleton {
+    - INSTANCE : Singleton {static}
+    - Singleton()
+    + getInstance() : Singleton {static}
+  }
+  class ThreadSafeDoubleCheckLockingSingleton {
+    - flag : boolean {static}
+    - instance : ThreadSafeDoubleCheckLockingSingleton {static}
+    - ThreadSafeDoubleCheckLockingSingleton()
+    + getInstance() : ThreadSafeDoubleCheckLockingSingleton {static}
+  }
+  class ThreadSafeLazyLoadedSingleton {
+    - instance : ThreadSafeLazyLoadedSingleton {static}
+    - ThreadSafeLazyLoadedSingleton()
+    + getInstance() : ThreadSafeLazyLoadedSingleton {static}
+  }
+}
+Singleton -->  "-INSTANCE" Singleton
+ThreadSafeDoubleCheckLockingSingleton -->  "-instance" ThreadSafeDoubleCheckLockingSingleton
+ThreadSafeLazyLoadedSingleton -->  "-instance" ThreadSafeLazyLoadedSingleton
+HelperHolder ..+ InitializingOnDemandHolderIdiomSingleton
+HelperHolder -->  "-INSTANCE" InitializingOnDemandHolderIdiomSingleton
+@enduml
