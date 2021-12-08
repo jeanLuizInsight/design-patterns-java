@@ -1,0 +1,79 @@
+@startuml
+package creational.builder {
+  class App {
+    + App()
+    + main(args : String[]) {static}
+  }
+  enum Armadura {
+    + TECIDO {static}
+    + COURO {static}
+    + METAL {static}
+    - titulo : String
+    + toString() : String
+    + valueOf(name : String) : Armadura {static}
+    + values() : Armadura[] {static}
+  }
+  enum CorDoCabelo {
+    + PRETO {static}
+    + MARROM {static}
+    + VERMELHO {static}
+    + BRANCO {static}
+    + toString() : String
+    + valueOf(name : String) : CorDoCabelo {static}
+    + values() : CorDoCabelo[] {static}
+  }
+  enum Profissao {
+    + MAGO {static}
+    + SACERDOTE {static}
+    + LADRAO {static}
+    + GUERREIRO {static}
+    + toString() : String
+    + valueOf(name : String) : Profissao {static}
+    + values() : Profissao[] {static}
+  }
+  enum Arma {
+    + MACHADO {static}
+    + ARCO {static}
+    + PUNHAL {static}
+    + ESPADA {static}
+    + toString() : String
+    + valueOf(name : String) : Arma {static}
+    + values() : Arma[] {static}
+  }
+  class Heroi {
+    - armadura : Armadura
+    - corDoCabelo : CorDoCabelo
+    - nome : String
+    - profissao : Profissao
+    - arma : Arma
+    - Heroi(builder : Builder)
+    + getArmadura() : Armadura
+    + getCorDoCabelo() : CorDoCabelo
+    + getNome() : String
+    + getProfissao() : Profissao
+    + getArma() : Arma
+    + toString() : String
+  }
+  class Builder {
+    - armadura : Armadura
+    - corDoCabelo : CorDoCabelo
+    - nome : String
+    - profissao : Profissao
+    - arma : Arma
+    + Builder(profissao : Profissao, nome : String)
+    + build() : Hero
+    + comArmadura(armadura : Armadura) : Builder
+    + comCorDoCabelo(corDoCabelo : CorDoCabelo) : Builder
+    + comArma(arma : Arma) : Builder
+  }
+}
+Heroi -->  "-profissao" Profissao
+Builder ..+ Heroi
+Heroi -->  "-armadura" Armadura
+Builder -->  "-corDoCabelo" CorDoCabelo
+Builder -->  "-arma" Arma
+Heroi -->  "-corDoCabelo" CorDoCabelo
+Builder -->  "-profissao" Profissao
+Heroi -->  "-arma" Arma
+Builder -->  "-armadura" Armadura
+@enduml
