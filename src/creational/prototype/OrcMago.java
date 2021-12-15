@@ -14,6 +14,11 @@ public class OrcMago extends Mago {
 		arma = orcMago.arma;
 	}
 
+	public OrcMago(String arma) {
+		super();
+		this.arma = arma;
+	}
+
 	@Override
 	public OrcMago copy() {
 		return new OrcMago(this);

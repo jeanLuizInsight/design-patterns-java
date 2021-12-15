@@ -8,6 +8,9 @@ package creational.prototype;
  */
 public abstract class Fera implements Prototype {
 
+	public Fera() {
+	}
+
 	public Fera(Fera source) {
 	}
 

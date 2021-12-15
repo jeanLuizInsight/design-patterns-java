@@ -7,6 +7,9 @@ package creational.prototype;
  */
 public abstract class Mago implements Prototype {
 
+	public Mago() {
+	}
+
 	public Mago(Mago source) {
 	}
 

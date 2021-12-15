@@ -14,6 +14,11 @@ public class OrcFera extends Fera {
 		arma = orcFera.arma;
 	}
 
+	public OrcFera(String arma) {
+		super();
+		this.arma = arma;
+	}
+
 	@Override
 	public OrcFera copy() {
 		return new OrcFera(this);

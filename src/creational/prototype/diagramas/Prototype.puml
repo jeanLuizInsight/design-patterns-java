@@ -73,31 +73,31 @@ package com.iluwatar.prototype {
     + equals(obj : Object) : boolean
     + toString() : String
   }
-  interface HeroiFactory {
+  interface CriaturaFactory {
     + createFera() : Fera {abstract}
     + createMago() : Mago {abstract}
     + createSenhorDaGuerra() : SenhorDaGuerra {abstract}
   }
-  class HeroiFactoryImpl {
+  class CriaturaFactoryImpl {
     - fera : Fera
     - mago : Mago
     - senhorDaGuerra : SenhorDaGuerra
-    + HeroiFactoryImpl(mago : Mago, senhorDaGuerra : SenhorDaGuerra, fera : Fera)
+    + CriaturaFactoryImpl(mago : Mago, senhorDaGuerra : SenhorDaGuerra, fera : Fera)
     + createFera() : Fera
     + createMago() : Mago
     + createSenhorDaGuerra() : SenhorDaGuerra
   }
 }
-HeroiFactoryImpl -->  "-fera" Fera
-HeroiFactoryImpl -->  "-senhorDaGuerra" SenhorDaGuerra
-HeroiFactoryImpl -->  "-mago" Mago
+CriaturaFactoryImpl -->  "-fera" Fera
+CriaturaFactoryImpl -->  "-senhorDaGuerra" SenhorDaGuerra
+CriaturaFactoryImpl -->  "-mago" Mago
 Fera ..|> Prototype 
 Mago ..|> Prototype 
 SenhorDaGuerra ..|> Prototype 
 ElfFera--|> Fera 
 ElfMago --|> Mago
 ElfSenhorDaGuerra --|> SenhorDaGuerra 
-HeroiFactoryImpl ..|> HeroiFactory 
+CriaturaFactoryImpl ..|> CriaturaFactory 
 OrcFera --|> Fera 
 OrcMago --|> Mago 
 OrcSenhorDaGuerra --|> SenhorDaGuerra 

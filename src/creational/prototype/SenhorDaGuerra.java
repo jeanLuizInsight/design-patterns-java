@@ -7,6 +7,9 @@ package creational.prototype;
  */
 public abstract class SenhorDaGuerra implements Prototype {
 
+	public SenhorDaGuerra() {
+	}
+
 	public SenhorDaGuerra(SenhorDaGuerra source) {
 	}
 

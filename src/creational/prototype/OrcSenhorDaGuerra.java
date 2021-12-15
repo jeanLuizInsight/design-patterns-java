@@ -14,6 +14,11 @@ public class OrcSenhorDaGuerra extends SenhorDaGuerra {
 		arma = orcSenhorDaGuerra.arma;
 	}
 
+	public OrcSenhorDaGuerra(String arma) {
+		super();
+		this.arma = arma;
+	}
+
 	@Override
 	public OrcSenhorDaGuerra copy() {
 		return new OrcSenhorDaGuerra(this);

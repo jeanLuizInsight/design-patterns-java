@@ -14,6 +14,11 @@ public class ElfSenhorDaGuerra extends SenhorDaGuerra {
 		tipoDeAjuda = elfSenhorDaGuerra.tipoDeAjuda;
 	}
 
+	public ElfSenhorDaGuerra(String tipoDeAjuda) {
+		super();
+		this.tipoDeAjuda = tipoDeAjuda;
+	}
+
 	@Override
 	public ElfSenhorDaGuerra copy() {
 		return new ElfSenhorDaGuerra(this);

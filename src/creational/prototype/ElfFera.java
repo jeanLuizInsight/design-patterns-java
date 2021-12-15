@@ -14,6 +14,11 @@ public class ElfFera extends Fera {
 		tipoDeAjuda = elfFera.tipoDeAjuda;
 	}
 
+	public ElfFera(String tipoDeAjuda) {
+		super();
+		this.tipoDeAjuda = tipoDeAjuda;
+	}
+
 	@Override
 	public ElfFera copy() {
 		return new ElfFera(this);

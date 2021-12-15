@@ -14,6 +14,11 @@ public class ElfMago extends Mago {
 		tipoDeAjuda = elfMago.tipoDeAjuda;
 	}
 
+	public ElfMago(String tipoDeAjuda) {
+		super();
+		this.tipoDeAjuda = tipoDeAjuda;
+	}
+
 	@Override
 	public ElfMago copy() {
 		return new ElfMago(this);
