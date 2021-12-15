@@ -1,0 +1,104 @@
+@startuml
+package com.iluwatar.prototype {
+  class App {
+    + App()
+    + main(args : String[]) {static}
+  }
+  interface Prototype {
+    + copy() : Object {abstract}
+  }
+  abstract class Fera {
+    + Fera()
+    + Fera(source : Fera)
+    + copy() : Fera {abstract}
+    + equals(obj : Object) : boolean
+  }
+  abstract class Mago {
+    + Mago()
+    + Mago(source : Mago)
+    + copy() : Mago {abstract}
+    + equals(obj : Object) : boolean
+  }
+  abstract class SenhorDaGuerra {
+    + SenhorDaGuerra()
+    + SenhorDaGuerra(source : SenhorDaGuerra)
+    + copy() : SenhorDaGuerra {abstract}
+    + equals(obj : Object) : boolean
+  }
+  class ElfFera {
+    - tipoDeAjuda : String
+    + ElfFera(elfFera : ElfFera)
+    + ElfFera(tipoDeAjuda : String)
+    + copy() : ElfFera
+    + equals(obj : Object) : boolean
+    + toString() : String
+  }
+  class ElfMago {
+    - tipoDeAjuda : String
+    + ElfMago(elfMago : ElfMago)
+    + ElfMago(tipoDeAjuda : String)
+    + copy() : ElfMago
+    + equals(obj : Object) : boolean
+    + toString() : String
+  }
+  class ElfSenhorDaGuerra {
+    - tipoDeAjuda : String
+    + ElfSenhorDaGuerra(elfWarlord : ElfSenhorDaGuerra)
+    + ElfSenhorDaGuerra(tipoDeAjuda : String)
+    + copy() : ElfSenhorDaGuerra
+    + equals(obj : Object) : boolean
+    + toString() : String
+  }
+  class OrcFera {
+    - arma : String
+    + OrcFera(orcFera : OrcFera)
+    + OrcFera(arma : String)
+    + copy() : OrcFera
+    + equals(obj : Object) : boolean
+    + toString() : String
+  }
+  class OrcMago {
+    - arma : String
+    + OrcMago(orcMago : OrcMago)
+    + OrcMago(arma : String)
+    + copy() : OrcMago
+    + equals(obj : Object) : boolean
+    + toString() : String
+  }
+  class OrcSenhorDaGuerra {
+    - arma : String
+    + OrcSenhorDaGuerra(orcSenhorDaGuerra : OrcSenhorDaGuerra)
+    + OrcSenhorDaGuerra(arma : String)
+    + copy() : OrcSenhorDaGuerra
+    + equals(obj : Object) : boolean
+    + toString() : String
+  }
+  interface HeroiFactory {
+    + createFera() : Fera {abstract}
+    + createMago() : Mago {abstract}
+    + createSenhorDaGuerra() : SenhorDaGuerra {abstract}
+  }
+  class HeroiFactoryImpl {
+    - fera : Fera
+    - mago : Mago
+    - senhorDaGuerra : SenhorDaGuerra
+    + HeroiFactoryImpl(mago : Mago, senhorDaGuerra : SenhorDaGuerra, fera : Fera)
+    + createFera() : Fera
+    + createMago() : Mago
+    + createSenhorDaGuerra() : SenhorDaGuerra
+  }
+}
+HeroiFactoryImpl -->  "-fera" Fera
+HeroiFactoryImpl -->  "-senhorDaGuerra" SenhorDaGuerra
+HeroiFactoryImpl -->  "-mago" Mago
+Fera ..|> Prototype 
+Mago ..|> Prototype 
+SenhorDaGuerra ..|> Prototype 
+ElfFera--|> Fera 
+ElfMago --|> Mago
+ElfSenhorDaGuerra --|> SenhorDaGuerra 
+HeroiFactoryImpl ..|> HeroiFactory 
+OrcFera --|> Fera 
+OrcMago --|> Mago 
+OrcSenhorDaGuerra --|> SenhorDaGuerra 
+@enduml
