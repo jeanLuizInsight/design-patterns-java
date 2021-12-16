@@ -1,5 +1,5 @@
 @startuml
-package com.iluwatar.prototype {
+package creational.prototype {
   class App {
     + App()
     + main(args : String[]) {static}

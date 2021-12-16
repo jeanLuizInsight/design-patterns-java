@@ -1,0 +1,55 @@
+@startuml
+package creational.factory_method {
+  class App {
+    - ferreiro : Ferreiro
+    + App(ferreiro : Ferreiro)
+    + main(args : String[]) {static}
+    - fabricarArmas()
+  }
+  interface Ferreiro {
+    + fabricarArma(TipoDeArma) : Arma {abstract}
+  }
+  interface Arma {
+    + getTipoDeArma() : TipoDeArma {abstract}
+  }
+  enum TipoDeArma {
+    + MACHADO {static}
+    + ESPADA {static}
+    + LANCA {static}
+    + INDEFINIDA {static}
+    - titulo : String
+    + toString() : String
+    + valueOf(name : String) : TipoDeArma {static}
+    + values() : TipoDeArma[] {static}
+  }
+  class ElfFerreiro {
+    - ELFARSENAL : Map<TipoDeArma, ElfArma> {static}
+    + ElfFerreiro()
+    + fabricarArma(TipoDeArma : TipoDeArma) : Arma
+  }
+  class ElfArma {
+    - tipoDeArma : TipoDeArma
+    + ElfArma(tipoDeArma : TipoDeArma)
+    + getTipoDeArma() : TipoDeArma
+    + toString() : String
+  }
+  class OrcFerreiro {
+    - ORCARSENAL : Map<TipoDeArma, OrcArma> {static}
+    + OrcFerreiro()
+    + fabricarArma(TipoDeArma : TipoDeArma) : Arma
+  }
+  class OrcArma {
+    - tipoDeArma : TipoDeArma
+    + OrcArma(tipoDeArma : TipoDeArma)
+    + getTipoDeArma() : TipoDeArma
+    + toString() : String
+  }
+}
+ElfArma -->  "-tipoDeArma" TipoDeArma
+OrcArma -->  "-tipoDeArma" TipoDeArma
+App -->  "-ferreiro" Ferreiro
+ElfFerreiro ..|> Ferreiro 
+ElfArma ..|> Arma 
+OrcFerreiro ..|> Ferreiro 
+OrcArma ..|> Arma 
+@enduml
