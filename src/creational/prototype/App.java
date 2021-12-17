@@ -1,5 +1,7 @@
 package creational.prototype;
 
+import java.util.logging.Logger;
+
 /**
  * Classe de execuçãoo das implementações do padrão Prototype.
  *
@@ -7,6 +9,8 @@ package creational.prototype;
  * @since 14/12/2021
  */
 public class App {
+
+	private static final Logger LOGGER = Logger.getLogger(App.class.getName());
 
 	public static void main(final String[] args) {
 
@@ -30,9 +34,9 @@ public class App {
 		Mago mago = factory.createMago();
 		SenhorDaGuerra senhorDaGuerra = factory.createSenhorDaGuerra();
 		Fera fera = factory.createFera();
-		System.out.println(mago);
-		System.out.println(senhorDaGuerra);
-		System.out.println(fera);
+		LOGGER.info(mago.toString());
+		LOGGER.info(senhorDaGuerra.toString());
+		LOGGER.info(fera.toString());
 
 		factory = new CriaturaFactoryImpl(
 				new OrcMago("varinha mágica"),
@@ -41,9 +45,9 @@ public class App {
 		mago = factory.createMago();
 		senhorDaGuerra = factory.createSenhorDaGuerra();
 		fera = factory.createFera();
-		System.out.println(mago);
-		System.out.println(senhorDaGuerra);
-		System.out.println(fera);
+		LOGGER.info(mago.toString());
+		LOGGER.info(senhorDaGuerra.toString());
+		LOGGER.info(fera.toString());
 
 	}
 }

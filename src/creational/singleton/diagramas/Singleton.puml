@@ -1,6 +1,7 @@
 @startuml
 package creational.singleton {
   class App {
+    - LOGGER : Logger {static}
     + App()
     + main(args : String[]) {static}
   }

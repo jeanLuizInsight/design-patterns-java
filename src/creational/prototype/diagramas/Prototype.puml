@@ -1,6 +1,7 @@
 @startuml
 package creational.prototype {
   class App {
+    - LOGGER : Logger {static}
     + App()
     + main(args : String[]) {static}
   }

@@ -1,6 +1,7 @@
 @startuml
 package creational.factory_method {
   class App {
+    - LOGGER : Logger {static}
     - ferreiro : Ferreiro
     + App(ferreiro : Ferreiro)
     + main(args : String[]) {static}
@@ -16,7 +17,7 @@ package creational.factory_method {
     + MACHADO {static}
     + ESPADA {static}
     + LANCA {static}
-    + INDEFINIDA {static}
+    + INDEFINIDO {static}
     - titulo : String
     + toString() : String
     + valueOf(name : String) : TipoDeArma {static}
@@ -26,7 +27,6 @@ package creational.factory_method {
     - ELFARSENAL : Map<TipoDeArma, ElfArma> {static}
     + ElfFerreiro()
     + fabricarArma(TipoDeArma : TipoDeArma) : Arma
-    + toString() : String
   }
   class ElfArma {
     - tipoDeArma : TipoDeArma
@@ -38,7 +38,6 @@ package creational.factory_method {
     - ORCARSENAL : Map<TipoDeArma, OrcArma> {static}
     + OrcFerreiro()
     + fabricarArma(TipoDeArma : TipoDeArma) : Arma
-    + toString() : String
   }
   class OrcArma {
     - tipoDeArma : TipoDeArma

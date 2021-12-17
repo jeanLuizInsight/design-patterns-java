@@ -1,6 +1,7 @@
 @startuml
 package creational.builder {
   class App {
+    - LOGGER : Logger {static}
     + App()
     + main(args : String[]) {static}
   }

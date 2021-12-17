@@ -1,11 +1,15 @@
 package creational.singleton;
 
+import java.util.logging.Logger;
+
 /**
  * Classe de execução das implementações do padrão Singleton.
  * @author <a href="mailto:jean.zanatta@unoesc.edu.br">Jean Luiz Zanatta</a>
  * @since 02/12/2021
  */
 public class App {
+
+	private static final Logger LOGGER = Logger.getLogger(App.class.getName());
 
 	public static void main(final String[] args) {
 
@@ -16,8 +20,8 @@ public class App {
 		 */
 		final Singleton sg1 = Singleton.getInstance();
 		final Singleton sg2 = Singleton.getInstance();
-		System.out.println("sg1 = " + sg1);
-		System.out.println("sg2 = " + sg2);
+		LOGGER.info("sg1 = " + sg1);
+		LOGGER.info("sg2 = " + sg2);
 
 		/**
 		 * Enum singleton
@@ -27,8 +31,8 @@ public class App {
 		 */
 		final EnumSingleton enumSg1 = EnumSingleton.INSTANCE;
 		final EnumSingleton enumSg2 = EnumSingleton.INSTANCE;
-		System.out.println("enumSg1 = " + enumSg1);
-		System.out.println("enumSg2 = " + enumSg2);
+		LOGGER.info("enumSg1 = " + enumSg1);
+		LOGGER.info("enumSg2 = " + enumSg2);
 
 		/**
 		 * Singleton inicializado lentamente
@@ -36,8 +40,8 @@ public class App {
 		 */
 		final ThreadSafeLazyLoadedSingleton threadSafeSg1 = ThreadSafeLazyLoadedSingleton.getInstance();
 		final ThreadSafeLazyLoadedSingleton threadSafeSg2 = ThreadSafeLazyLoadedSingleton.getInstance();
-		System.out.println("threadSafeSg1 = " + threadSafeSg1);
-		System.out.println("threadSafeSg2 = " + threadSafeSg2);
+		LOGGER.info("threadSafeSg1 = " + threadSafeSg1);
+		LOGGER.info("threadSafeSg2 = " + threadSafeSg2);
 
 		/**
 		 * Singleton inicializado lentgamente com bloqueio duplamente verificado
@@ -46,8 +50,8 @@ public class App {
 		 */
 		final ThreadSafeDoubleCheckLockingSingleton dcl1 = ThreadSafeDoubleCheckLockingSingleton.getInstance();
 		final ThreadSafeDoubleCheckLockingSingleton dcl2 = ThreadSafeDoubleCheckLockingSingleton.getInstance();
-		System.out.println("dcl1 = " + dcl1);
-		System.out.println("dcl2 = " + dcl2);
+		LOGGER.info("dcl1 = " + dcl1);
+		LOGGER.info("dcl2 = " + dcl2);
 
 		/**
 		 * Inicializar no idioma Initialize-on-demand-holder
@@ -55,9 +59,9 @@ public class App {
 		 * Requer Java 8 para funcionar
 		 */
 		final InitializingOnDemandHolderIdiomSingleton demandHolderIdiom = InitializingOnDemandHolderIdiomSingleton.getInstance();
-		final InitializingOnDemandHolderIdiomSingleton demandHolderIdiom2 = InitializingOnDemandHolderIdiomSingleton.getInstance();
-		System.out.println("demandHolderIdiom = " + demandHolderIdiom);
-		System.out.println("demandHolderIdiom2 = " + demandHolderIdiom);
+		InitializingOnDemandHolderIdiomSingleton.getInstance();
+		LOGGER.info("demandHolderIdiom = " + demandHolderIdiom);
+		LOGGER.info("demandHolderIdiom2 = " + demandHolderIdiom);
 
 	}
 }
