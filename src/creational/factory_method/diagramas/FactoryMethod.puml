@@ -26,6 +26,7 @@ package creational.factory_method {
     - ELFARSENAL : Map<TipoDeArma, ElfArma> {static}
     + ElfFerreiro()
     + fabricarArma(TipoDeArma : TipoDeArma) : Arma
+    + toString() : String
   }
   class ElfArma {
     - tipoDeArma : TipoDeArma
@@ -37,6 +38,7 @@ package creational.factory_method {
     - ORCARSENAL : Map<TipoDeArma, OrcArma> {static}
     + OrcFerreiro()
     + fabricarArma(TipoDeArma : TipoDeArma) : Arma
+    + toString() : String
   }
   class OrcArma {
     - tipoDeArma : TipoDeArma
