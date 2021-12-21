@@ -33,6 +33,11 @@ package creational.abstract_factory {
   interface Rei {
     + getDescricao() : String {abstract}
   }
+  interface ReinoFactory {
+    + createExercito() : Exercito {abstract}
+    + createCastelo() : Castelo {abstract}
+    + createRei() : Rei {abstract}
+  }
   class CriadorDeFactory {
     + CriadorDeFactory()
     + createFactory(tipo : TipoDeReino) : ReinoFactory {static}
@@ -57,11 +62,6 @@ package creational.abstract_factory {
     + createExercito() : Exercito
     + createCastelo() : Castelo
     + createRei() : Rei
-  }
-  interface ReinoFactory {
-    + createExercito() : Exercito {abstract}
-    + createCastelo() : Castelo {abstract}
-    + createRei() : Rei {abstract}
   }
   class OrcExercito {
     ~ DESCRICAO : String {static}
