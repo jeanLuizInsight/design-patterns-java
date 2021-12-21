@@ -1,0 +1,101 @@
+@startuml
+package creational.abstract_factory {
+  class App {
+    - LOGGER : Logger {static}
+    - exercito : Exercito
+    - castelo : Castelo
+    - king : King
+    + App()
+    + getExercito() : Exercito
+    ~ getExercito(factory : ReinoFactory) : Exercito
+    + getCastelo() : Castelo
+    ~ getCastelo(factory : ReinoFactory) : Castelo
+    + getRei() : Rei
+    ~ getRei(factory : ReinoFactory) : Rei
+    - setExercito(exercito : Exercito)
+    - setCastelo(castelo : Castelo)
+    - setRei(rei : Rei)
+    + main(args : String[]) {static}
+    + createReino(factory : TipoDeReino)
+  }
+  enum TipoDeReino {
+    + ELF {static}
+    + ORC {static}
+    + valueOf(name : String) : TipoDeReino {static}
+    + values() : TipoDeReino[] {static}
+  }
+  interface Exercito {
+    + getDescricao() : String {abstract}
+  }
+  interface Castelo {
+    + getDescricao() : String {abstract}
+  }
+  interface Rei {
+    + getDescricao() : String {abstract}
+  }
+  class CriadorDeFactory {
+    + CriadorDeFactory()
+    + createFactory(tipo : TipoDeReino) : ReinoFactory {static}
+  }
+  class ElfExercito {
+    ~ DESCRICAO : String {static}
+    + ElfExercito()
+    + getDescricao() : String
+  }
+  class ElfCastelo {
+    ~ DESCRICAO : String {static}
+    + ElfCastelo()
+    + getDescricao() : String
+  }
+  class ElfRei {
+    ~ DESCRICAO : String {static}
+    + ElfRei()
+    + getDescricao() : String
+  }
+  class ElfReinoFactory {
+    + ElfReinoFactory()
+    + createExercito() : Exercito
+    + createCastelo() : Castelo
+    + createRei() : Rei
+  }
+  interface ReinoFactory {
+    + createExercito() : Exercito {abstract}
+    + createCastelo() : Castelo {abstract}
+    + createRei() : Rei {abstract}
+  }
+  class OrcExercito {
+    ~ DESCRICAO : String {static}
+    + OrcExercito()
+    + getDescricao() : String
+  }
+  class OrcCastelo {
+    ~ DESCRICAO : String {static}
+    + OrcCastelo()
+    + getDescricao() : String
+  }
+  class OrcRei {
+    ~ DESCRICAO : String {static}
+    + OrcRei()
+    + getDescricao() : String
+  }
+  class OrcReinoFactory {
+    + OrcReinoFactory()
+    + createExercito() : Exercito
+    + createCastelo() : Castelo
+    + createRei() : Rei
+  }
+}
+TipoDeReino ..+ CriadorDeFactory
+App -->  "-castelo" Castelo
+CriadorDeFactory ..+ App
+App -->  "-rei" Rei
+App -->  "-exercito" Exercito
+ElfExercito ..|> Exercito 
+ElfCastelo ..|> Castelo 
+ElfRei ..|> Rei 
+ElfReinoFactory ..|> ReinoFactory 
+OrcExercito ..|> Exercito 
+OrcCastelo ..|> Castelo 
+OrcRei ..|> Rei 
+OrcReinoFactory ..|> ReinoFactory 
+@enduml
