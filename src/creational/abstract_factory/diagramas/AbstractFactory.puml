@@ -4,7 +4,7 @@ package creational.abstract_factory {
     - LOGGER : Logger {static}
     - exercito : Exercito
     - castelo : Castelo
-    - king : King
+    - rei : Rei
     + App()
     + getExercito() : Exercito
     ~ getExercito(factory : ReinoFactory) : Exercito
