@@ -7,6 +7,34 @@ package creational.abstract_factory;
  */
 public class Reino {
 
+	private Castelo castelo;
+	private Rei rei;
+	private Exercito exercito;
+
+	public Castelo getCastelo() {
+		return castelo;
+	}
+
+	public void setCastelo(Castelo castelo) {
+		this.castelo = castelo;
+	}
+
+	public Rei getRei() {
+		return rei;
+	}
+
+	public void setRei(Rei rei) {
+		this.rei = rei;
+	}
+
+	public Exercito getExercito() {
+		return exercito;
+	}
+
+	public void setExercito(Exercito exercito) {
+		this.exercito = exercito;
+	}
+
 	/**
 	 * Classe criadora de fábricas do Reino.
 	 */
@@ -22,7 +50,7 @@ public class Reino {
 		 * @param tipo
 		 * @return
 		 */
-		public ReinoFactory createFactory(TipoDeReino tipo) {
+		public static ReinoFactory createFactory(TipoDeReino tipo) {
 			switch (tipo) {
 			case ELF:
 				return new ElfReinoFactory();
