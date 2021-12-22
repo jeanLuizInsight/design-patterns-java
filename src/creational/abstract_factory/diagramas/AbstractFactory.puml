@@ -38,10 +38,6 @@ package creational.abstract_factory {
     + createCastelo() : Castelo {abstract}
     + createRei() : Rei {abstract}
   }
-  class CriadorDeFactory {
-    + CriadorDeFactory()
-    + createFactory(tipo : TipoDeReino) : ReinoFactory {static}
-  }
   class ElfExercito {
     ~ DESCRICAO : String {static}
     + ElfExercito()
@@ -83,6 +79,10 @@ package creational.abstract_factory {
     + createExercito() : Exercito
     + createCastelo() : Castelo
     + createRei() : Rei
+  }
+  class CriadorDeFactory {
+    + CriadorDeFactory()
+    + createFactory(tipo : TipoDeReino) : ReinoFactory {static}
   }
 }
 TipoDeReino ..+ CriadorDeFactory
