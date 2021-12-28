@@ -1,0 +1,3 @@
+# Decorator - Structural (Estrutural)
+
+Em construção...

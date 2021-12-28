@@ -1,0 +1,3 @@
+# Adapter - Structural (Estrutural)
+
+Em construção...

@@ -1,0 +1,3 @@
+# Flyweight - Structural (Estrutural)
+
+Em construção...
