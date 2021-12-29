@@ -26,10 +26,16 @@ public abstract class LetraComposite {
 		this.imprimirEsseValorDepois();
 	}
 
+	/**
+	 * Eis o ponto ruim da utilização do padrão, quebrando ISP (princípio da segregação de interface)
+	 */
 	protected void imprimirEsseValorDepois() {
 
 	}
 
+	/**
+	 * Eis o ponto ruim da utilização do padrão, quebrando ISP (princípio da segregação de interface)
+	 */
 	protected void imprimirEsseValorAntes() {
 
 	}
