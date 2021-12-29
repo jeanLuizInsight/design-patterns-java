@@ -16,7 +16,7 @@ public class Letra extends LetraComposite {
 
 	@Override
 	protected void imprimirEsseValorDepois() {
-		System.out.println(this.caracter);
+		System.out.print(this.caracter);
 	}
 
 }

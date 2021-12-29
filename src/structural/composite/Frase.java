@@ -16,7 +16,7 @@ public class Frase extends LetraComposite {
 
 	@Override
 	protected void imprimirEsseValorDepois() {
-		System.out.println(".\n");
+		System.out.print(".\n");
 	}
 
 }

@@ -23,7 +23,7 @@ public class Palavra extends LetraComposite {
 
 	@Override
 	protected void imprimirEsseValorAntes() {
-		System.out.println(" ");
+		System.out.print(" ");
 	}
 
 }
