@@ -1,0 +1,41 @@
+@startuml
+package structural.composite {
+  class App {
+    - LOGGER : Logger {static}
+    + App()
+    + main(args : String[]) {static}
+  }
+  class Letra {
+    - caracter : char
+    + Letra(c : char)
+    # imprimirEsseValorAntes()
+  }
+  abstract class LetraComposite {
+    - filhos : List<LetraComposite>
+    + LetraComposite()
+    + add(letra : LetraComposite)
+    + count() : int
+    + imprimir()
+    # imprimirEsseValorDepois()
+    # imprimirEsseValorAntes()
+  }
+  class Mensageiro {
+    + Mensageiro()
+    ~ mensagemParaElfos() : LetraComposite
+    ~ mensagemParaOrcs() : LetraComposite
+  }
+  class Frase {
+    + Frase(palavras : List<Palavra>)
+    # imprimirEsseValorDepois()
+  }
+  class Palavra {
+    + Palavra(letras : List<Letra>)
+    + Palavra(letras : char[])
+    # imprimirEsseValorAntes()
+  }
+}
+LetraComposite -->  "-filhos" LetraComposite
+Letra --|> LetraComposite 
+Frase --|> LetraComposite 
+Palavra --|> LetraComposite 
+@enduml
