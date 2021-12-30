@@ -1,0 +1,31 @@
+@startuml
+package structural.adapter {
+  class App {
+    - App()
+    + main(args : String[]) {static}
+  }
+  class Capitao {
+    - barcoDeRemo : BarcoDeRemo
+    + Capitao()
+    + Capitao(barco : BarcoDeRemo)
+    ~ remar()
+    ~ setBarcoDeRemo(barco : BarcoDeRemo)
+  }
+  ~class BarcoDePesca {
+    - LOGGER : Logger {static}
+    ~ BarcoDePesca()
+    ~ velejar()
+  }
+  class BarcoDePescaAdapter {
+    - barco : BarcoDePesca
+    + BarcoDePescaAdapter()
+    + remar()
+  }
+  interface BarcoDeRemo {
+    + remar() {abstract}
+  }
+}
+BarcoDePescaAdapter -->  "-barco" BarcoDePesca
+Capitao -->  "-barcoDeRemo" BarcoDeRemo
+BarcoDePescaAdapter ..|> BarcoDeRemo 
+@enduml
