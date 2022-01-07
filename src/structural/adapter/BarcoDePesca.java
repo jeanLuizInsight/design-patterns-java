@@ -7,7 +7,7 @@ import java.util.logging.Logger;
  * @author <a href="mailto:jean.zanatta@unoesc.edu.br">Jean Luiz Zanatta</a>
  * @since 07/01/2022
  */
-public final class BarcoDePesca {
+final class BarcoDePesca {
 
 	private static final Logger LOGGER = Logger.getLogger(BarcoDePesca.class.getName());
 
