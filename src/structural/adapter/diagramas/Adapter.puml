@@ -14,7 +14,7 @@ package structural.adapter {
   ~class BarcoDePesca {
     - LOGGER : Logger {static}
     ~ BarcoDePesca()
-    ~ velejar()
+    ~ navegar()
   }
   class BarcoDePescaAdapter {
     - barco : BarcoDePesca
