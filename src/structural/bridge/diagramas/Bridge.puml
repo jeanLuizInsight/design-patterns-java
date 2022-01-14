@@ -19,7 +19,7 @@ package structural.bridge {
   }
   class Martelo {
     - LOGGER : Logger {static}
-    - enchantment : Encantamento
+    - encantamento : Encantamento
     + Martelo(encantamento : Encantamento)
     + getEncantamento() : Encantamento
     + balancar()
@@ -53,6 +53,6 @@ Espada -->  "-encantamento" Encantamento
 Martelo -->  "-encantamento" Encantamento
 EncantamentoVoador ..|> Encantamento 
 Martelo ..|> Arma 
-SoulEatingEnchantment ..|> Encantamento 
+EncantamentoEngolidorDeAlmas ..|> Encantamento 
 Espada ..|> Arma 
 @enduml
