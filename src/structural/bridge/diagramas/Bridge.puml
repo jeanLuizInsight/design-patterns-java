@@ -1,0 +1,58 @@
+@startuml
+package structural.bridge {
+  class App {
+    - LOGGER : Logger {static}
+    + App()
+    + main(args : String[]) {static}
+  }
+  interface Encantamento {
+    + aplicar() {abstract}
+    + emAtivacao() {abstract}
+    + emDesativacao() {abstract}
+  }
+  class EncantamentoVoador {
+    - LOGGER : Logger {static}
+    + EncantamentoVoador()
+    + aplicar()
+    + emAtivacao()
+    + emDesativacao()
+  }
+  class Martelo {
+    - LOGGER : Logger {static}
+    - enchantment : Encantamento
+    + Martelo(encantamento : Encantamento)
+    + getEncantamento() : Encantamento
+    + balancar()
+    + manejar()
+    + desarmar()
+  }
+  class EncantamentoEngolidorDeAlmas {
+    - LOGGER : Logger {static}
+    + EncantamentoEngolidorDeAlmas()
+    + aplicar()
+    + emAtivacao()
+    + emDesativacao()
+  }
+  class Espada {
+    - LOGGER : Logger {static}
+    - encantamento : Encantamento
+    + Espada(encantamento : Encantamento)
+    + getEncantamento() : Encantamento
+    + balancar()
+    + manejar()
+    + desarmar()
+  }
+  interface Arma {
+    + getEncantamento() : Encantamento {abstract}
+    + balancar() {abstract}
+    + manejar() {abstract}
+    + desarmar() {abstract}
+  }
+}
+Espada -->  "-encantamento" Encantamento
+Martelo -->  "-encantamento" Encantamento
+EncantamentoVoador ..|> Encantamento 
+Martelo ..|> Arma 
+SoulEatingEnchantment ..|> Encantamento 
+Espada ..|> Arma 
+@enduml
