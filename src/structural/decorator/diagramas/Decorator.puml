@@ -1,0 +1,32 @@
+@startuml
+package structural.decorator {
+  class App {
+    - LOGGER : Logger {static}
+    + App()
+    + main(args : String[]) {static}
+  }
+  class TrollArmado {
+    - LOGGER : Logger {static}
+    - decorated : Troll
+    + TrollArmado(decorated : Troll)
+    + ataque()
+    + fugirDaBatalha()
+    + getPoderDeAtaque() : int
+  }
+  class TrollDesarmado {
+    - LOGGER : Logger {static}
+    + TrollDesarmado()
+    + ataque()
+    + fugirDaBatalha()
+    + getPoderDeAtaque() : int
+  }
+  interface Troll {
+    + ataque() {abstract}
+    + fugirDaBatalha() {abstract}
+    + getPoderDeAtaque() : int {abstract}
+  }
+}
+TrollArmado -->  "-decorated" Troll
+TrollArmado ..|> Troll 
+TrollDesarmado ..|> Troll 
+@enduml
