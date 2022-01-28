@@ -1,0 +1,61 @@
+@startuml
+package structural.facade {
+  class App {
+    + App()
+    + main(args : String[]) {static}
+  }
+  ~enum Acao {
+    + IR_PARA_CASA {static}
+    + IR_PARA_MINA {static}
+    + IR_DORMIR {static}
+    + ACORDAR {static}
+    + TRABALHAR {static}
+    + valueOf(name : String) : Action {static}
+    + values() : Action[] {static}
+  }
+  abstract class Minerador {
+    - LOGGER : Logger {static}
+    + Minerador()
+    - acao(acao : Acao)
+    + acao(acoes : Acao[])
+    + irParaCasa()
+    + irParaMina()
+    + irDormir()
+    + getNome() : String {abstract}
+    + acordar()
+    + trabalhar() {abstract}
+  }
+  class OperadorDeCarrinho {
+    - LOGGER : Logger {static}
+    + OperadorDeCarrinho()
+    + getNome() : String
+    + trabalhar()
+  }
+  class EscavadorDeOuro {
+    - LOGGER : Logger {static}
+    + EscavadorDeOuro()
+    + getNome() : String
+    + trabalhar()
+  }
+  class EscavadorDeTunel {
+    - LOGGER : Logger {static}
+    + EscavadorDeTunel()
+    + getNome() : String
+    + trabalhar()
+  }
+  class MinaDeOuroFacade {
+    - trabalhadores : List<Minerador>
+    + MinaDeOuroFacade()
+    + cavarOuro()
+    + finalizarDia()
+    - fazerAcoes(trabalhadores : Collection<Minerador>, acoes : Acao[]) {static}
+    + iniciarNovoDia()
+  }
+  
+}
+MinaDeOuroFacade -->  "-trabalhadores" Minerador
+Acao ..+ Minerador
+OperadorDeCarrinho --|> Minerador 
+EscavadorDeOuro --|> Minerador 
+EscavadorDeTunel --|> Minerador 
+@enduml
