@@ -3,7 +3,7 @@ package structural.facade;
 import java.util.logging.Logger;
 
 /**
- * Classe que representa um operador de carrinho. É um dos subsistemas da mina de ouro.
+ * Classe que representa um trabalhador do tipo operador de carrinho. É um dos subsistemas da mina de ouro.
  *
  * @author <a href="mailto:jean.zanatta@unoesc.edu.br">Jean Luiz Zanatta</a>
  * @since 28/01/2022
