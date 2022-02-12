@@ -1,0 +1,32 @@
+@startuml
+package structural.proxy {
+  class App {
+    + App()
+    + main(args : String[]) {static}
+  }
+  class TorreDeMarfim {
+    - LOGGER : Logger {static}
+    + TorreDeMarfim()
+    + entrar(mago : Mago)
+  }
+  class Mago {
+    - nome : String
+    + Mago(nome : String)
+    + toString() : String
+  }
+  interface TorreDoMago {
+    + entrar(Mago) {abstract}
+  }
+  class TorreDoMagoProxy {
+    - LOGGER : Logger {static}
+    - NUM_MAGOS_PERMITIDOS : int {static}
+    - numMagos : int
+    - torre : TorreDoMago
+    + TorreDoMagoProxy(torre : TorreDoMago)
+    + entrar(mago : Mago)
+  }
+}
+TorreDoMagoProxy -->  "-torre" TorreDoMago
+TorreDeMarfim ..|> TorreDoMago 
+TorreDoMagoProxy ..|> TorreDoMago 
+@enduml
