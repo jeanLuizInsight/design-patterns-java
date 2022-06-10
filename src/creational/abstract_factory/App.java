@@ -21,6 +21,7 @@ import creational.abstract_factory.Reino.CriadorDeFactory.TipoDeReino;
  * e suas implementações ({ @link ElfReinoFactory}, { @link OrcReinoFactory}).
  * O exemplo usa ambas as implementações concretas para criar um rei, um castelo e um exército.
  *
+ * 
  * @author <a href="mailto:jean.zanatta@unoesc.edu.br">Jean Luiz Zanatta</a>
  * @since 21/12/2021
  */
